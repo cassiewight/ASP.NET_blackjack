@@ -1,0 +1,100 @@
+﻿body {
+    width: 100%;
+    margin:0 auto;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 400px;
+}
+
+
+/*Custom CSS (cannot be run in debug mode)*/
+
+.card {
+    width:80px;
+    border:1px solid grey;
+    border-radius:4px;
+    box-shadow: 1px 3px 5px grey;
+}
+
+.card:nth-child(n+3){
+    margin-left:-8%;
+}
+
+.bordered{
+    border:1px solid black;
+}
+
+.btn-primary {
+
+    width: 200px;
+    box-shadow: 1px 3px 5px grey;
+    background-color:darkgreen;
+    color:white;
+    text-align:center;
+    border:none;
+    margin-top:10px;
+    font-size:1rem;
+}
+
+.btn-primary:hover{
+    background-color:green;
+}
+
+.text-bold{
+    font-weight:700;
+}
+
+.player-stats {
+    
+}
+
+.game-container{
+    margin-top:20px;
+    padding:5%;
+    border-radius:3px;
+    box-shadow:1px 1px 4px grey;
+}
+.game-sidebar {
+    padding-right:30px;
+}
+
+@media only screen and (min-width:771px ){
+    .card {
+        width: 120px;
+    }
+    .card:nth-child(n+3) {
+        margin-left: -10%;
+    }
+    body{
+        padding-top:50px;
+    }
+    .btn-primary{
+        font-size:1.5rem;
+    }
+
+    .game-container{
+        text-align:left;
+    }
+    .game-sidebar{
+        text-align:left;
+    }
+}

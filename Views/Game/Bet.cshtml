@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Bet";
+}
+
+<div class="row mx-auto body-content">
+
+    <div class="col-12 col-md-offset-2 col-md-8 m-auto">
+
+        <h2>Make Your Bet</h2>
+        <p>You may bet an integer between $1.00 and $100.00 (or your balance if under $100.00)</p>
+        <p>Your Balance: <span class="text-bold">$@Session["Balance"]</span></p>
+        <p>Enter bet:</p>
+
+        @using (Html.BeginForm("Bet", "Game", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    @Html.ValidationSummary()
+                    @Html.TextBox("txtBet", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Bet is required" })
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" class="btn btn-primary" value="Submit" /></td>
+                </tr>
+            </table>
+        }
+
+    </div>
+    </div>

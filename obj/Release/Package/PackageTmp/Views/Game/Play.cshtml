@@ -1,0 +1,89 @@
+﻿@model BlackJack.ViewModels.GameViewModel
+
+@{
+    ViewBag.Title = "Play";
+}
+
+<div class="row body-content">
+    <div class="col-12 text-center col-sm-4 text-sm-left game-sidebar">
+        <div class="row">
+            <div class="col-5">
+                <div class="player-stats">
+                    @if (Session["Name"] != null)
+                    {
+                        <h2>@Session["Name"]</h2>
+                    }
+                    else
+                    {
+                        <h2>BlackJack</h2>
+                    }
+                    <p>Balance: <span class="text-bold">$@Session["Balance"]</span></p>
+                    <p>Bet: <span class="text-bold">$@Session["Bet"]</span></p>
+                </div>
+            </div>
+            <div class="col-6 ">
+                @*section only shows when the outcome has been reached (hand is over)*@
+                @if (Session["Outcome"] != null)
+                {
+                    <hr/>
+            
+                    <p>Result: <span class="text-bold">@Session["Outcome"]!</span></p>
+                    <p>@Session["OutcomeMessage"]</p>
+                    <input type="button"
+                               class="btn btn-primary"
+                               value="Play Again"
+                               onclick="location.href='@Url.Action("Bet", "Game" )'" />
+            
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="button"
+                                   value="Hit"
+                                   class="btn btn-primary"
+                                   onclick="location.href='@Url.Action("Hit", "Game" )'" />
+                        </div>
+                        <div class="col-12">
+                            <input type="button"
+                                   value="Stand"
+                                   class="btn btn-primary"
+                                   onclick="location.href='@Url.Action("Stand", "Game" )'" />
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-sm-8 text-sm-left col-12 text-center game-container">
+        <div>
+
+            @if (Session["DealerCardState"].ToString().Equals("flipped"))
+            {
+                <img class="card" src="@Model.DealerCards[0].Path" />
+                <img class="card" src="~/Content/images/card_back_darkBlue.svg" />
+
+            }
+            else
+            {
+                foreach (var card in Model.DealerCards)
+                {
+                    <img class="card" src="@card.Path" />
+                }
+            }
+        </div>
+        <hr/>
+        <div>
+            @foreach (var card in Model.PlayerCards)
+            {
+                <img class="card" src="@card.Path" />
+            }
+        </div>
+
+    </div>
+</div>
+
+     

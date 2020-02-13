@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "GameOver";
+}
+
+<div class="row mx-auto body-content">
+    <div class="col-12 col-md-offset-2 col-md-8 m-auto">
+        <h1>Oops...you have no more money!</h1>
+        <p>You ran out of money.  But don't worry, you can top up to $500 just by clicking this button!</p>
+        <input type="button"
+               value="Top Up & Keep Gambling"
+               class="btn btn-primary"
+               onclick="location.href='@Url.Action("Index", "Home" )'" />
+    </div>
+</div>
+

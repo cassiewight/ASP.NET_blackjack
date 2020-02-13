@@ -1,0 +1,31 @@
+﻿@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/bootstrap")
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row mx-auto body-content">
+
+    <div class="col-10 col-offset-1 col-md-offset-2 col-md-8 mx-auto">
+        <h1>Welcome to Blackjack!</h1>
+
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <p>Enter your name:</p>
+            @Html.ValidationSummary()
+            @Html.TextBox("txtName", null, new { @class = "form-control valid", @data_val = "true", @data_val_required = "Name is required" })
+
+            <div><input class="btn btn-primary" type="submit" value="Play" /></div>
+
+        }
+    </div>
+</div>
+
+
+
+
+
